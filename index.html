@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Artsius</title>
+
+  <link rel="stylesheet" href="style/material.min.css">
+  <link rel="stylesheet" href="style/main.css">
+  <script src="/scripts/jquery-3.2.1.js"></script>
+  <script src="/scripts/material.min.js"></script>
+  <script src="/scripts/main.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script type="text/javascript">
+		/* This loads our shared header and places the contents of this page inside it. */
+		$(document).ready( function() {
+			$("#header").load("/shared/header.html", function() {
+				$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
+				componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
+				$(".mdl-layout-title").text("Artsius")
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="header"></div>
+	<div id="this-page">
+		<!-- All content of this page goes here! -->
+		[CONTENT HERE]
+	</div>
+</body>
