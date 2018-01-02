@@ -8,11 +8,11 @@
   <title>Artsius</title>
 
   <link rel="stylesheet" href="style/material.min.css">
-  <link rel="stylesheet" href="style/main.css">	<!-- CHANGE THIS -->
+  <link rel="stylesheet" href="style/user_profile.css">
   <script src="/scripts/jquery-3.2.1.js"></script>
   <script src="/scripts/material.min.js"></script>
   <script src="/scripts/userdata.js"></script>
-  <script src="/scripts/main.js"></script>	<!-- CHANGE THIS -->
+  <script src="/scripts/user_profile.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 	<script type="text/javascript">
@@ -21,7 +21,7 @@
 			$("#header").load("/shared/header.html", function() {
 				$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
 				componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
-				$(".mdl-layout-title").text("[TITLE HERE]")					// CHANGE THIS: set proper page title
+				$(".mdl-layout-title").text("User")									// CHANGE THIS: set proper page title
 			});
 		});
 	</script>
@@ -31,6 +31,6 @@
 	<div id="header"></div>
 	<div id="this-page">
 		<!-- All content of this page goes here! -->
-		[CONTENT HERE]
+		
 	</div>
 </body>

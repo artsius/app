@@ -1,0 +1,18 @@
+<!-- a few simple buttons for testing if user data storage cookie works.
+Include in page with $("#DESTINATION").load("/templates/cookie_testers.html"); -->
+
+<div id="cookie_testers">
+	<button onclick="(function() {
+		userdata.set('data', '123');
+	})();">make data</button>
+	<button onclick="(function() {
+		userdata.set('data2', ';===;=;;;;==;=;;=;=;==;;=;====;;      0;;=;= ; 0,;=0, ;=;= =; ;= ;=0;=;=;=;;=;=;;;;;;==;');
+	})();">make data 2</button>
+	<button onclick="(function(){
+		console.log(userdata.get('data'));
+		console.log(userdata.get('data2'));
+	})();">read data</button>
+	<button onClick="(function(){
+		userdata.delall();
+	})();">delete data</button>
+</div>

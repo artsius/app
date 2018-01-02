@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style/main.css">
   <script src="/scripts/jquery-3.2.1.js"></script>
   <script src="/scripts/material.min.js"></script>
+  <script src="/scripts/userdata.js"></script>
   <script src="/scripts/main.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -20,7 +21,7 @@
 			$("#header").load("/shared/header.html", function() {
 				$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
 				componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
-				$(".mdl-layout-title").text("Artsius")
+				$(".pagetitle").text("Artsius")
 			});
 		});
 	</script>
@@ -31,5 +32,6 @@
 	<div id="this-page">
 		<!-- All content of this page goes here! -->
 		[CONTENT HERE]
+    <a href="/user_profile.html">user profile</a>
 	</div>
 </body>
