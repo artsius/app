@@ -23,6 +23,9 @@
 				componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
 				$(".pagetitle").text("Artsius")
 			});
+			$("#search-btn").click(function() {
+				$("#search-result").css({'visibility':'visible'});
+			});
 		});
 	</script>
 </head>
@@ -30,8 +33,158 @@
 <body>
 	<div id="header"></div>
 	<div id="this-page">
-		<!-- All content of this page goes here! -->
-		[CONTENT HERE]
-    <a href="/user_profile.html">user profile</a>
+		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			<div class="mdl-tabs__tab-bar">
+				<a href="#search-panel" class="mdl-tabs__tab">Search</a>
+				<a href="#home-panel" class="mdl-tabs__tab is-active">Home</a>
+				<a href="#messages-panel" class="mdl-tabs__tab">Messages</a>
+			</div>
+
+			<!-- Search Panel -->
+			<div class="mdl-tabs__panel" id="search-panel">
+
+				<div class="panel">
+					<div class="search-box">
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield search-box">
+								<input class="mdl-textfield__input" type="text" id="sample1">
+								<label class="mdl-textfield__label" for="sample1">Search...</label>
+							</div>
+						</form>
+					</div>
+					<div class="search-box">
+						<button id="search-btn" class="mdl-button mdl-js-button mdl-button--raised search-box">Search</button>
+					</div>
+
+					<div id="search-result">
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>																																		
+				</div>
+
+				</div>
+			</div>
+
+			<!-- Home Panel -->
+			<div class="mdl-tabs__panel is-active" id="home-panel">
+				<div class="panel">
+					<h4>Featured</h4>
+					<div class="featured">
+						<p class="title">Interview with Asdf Asdfg: "I draw therefore I am" </p>
+						    <div class="featured-img">
+						      <img src="/assets/artista.jpg" alt="">
+							</div>
+						<div class="featured-text">
+						  	<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales lacus a nisi tincidunt, at posuere ex venenatis. Morbi suscipit magna vitae magna elementum, sed aliquet lectus sagittis. Nullam suscipit eu ipsum in egestas. Etiam velit sapien, convallis eu elit ut, feugiat semper dui. Donec at nunc magna. Nullam viverra purus ut dui ultrices, ut sollicitudin justo scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum a mauris sit amet sodales. Nulla a justo quis dolor fringilla mollis in at ipsum. Nunc tristique augue risus, quis hendrerit neque euismod et. Praesent vestibulum convallis justo. Proin sapien urna, lacinia eu elit vitae, tempor sagittis dui. Aliquam interdum nulla ante, sit amet maximus neque luctus sit amet.</p>
+						  	<p class="read_more">Read more...</p>
+						</div>
+					</div>
+				</div>
+
+			</hr>
+				<div class="panel">
+					<h4>Trending Artists</h4>
+					<div>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>
+						<a href="/artist_profile.html">
+							<figure>
+								<img src="/assets/artista.jpg" alt="">
+							</figure>
+						</a>																																		
+				</div>
+				  <!-- other anchors here ... -->
+				</div>
+
+			</div>
+
+			<!-- Messages Panel -->
+			<div class="mdl-tabs__panel" id="messages-panel">
+
+			</div>
+		</div>		
+		<footer class="mdl-layout__footer">
+
+	  	</footer>
 	</div>
 </body>

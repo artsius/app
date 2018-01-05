@@ -1,0 +1,144 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Artsius</title>
+
+  <link rel="stylesheet" href="style/material.min.css">
+  <link rel="stylesheet" href="style/artist_profile.css">
+  <script src="/scripts/jquery-3.2.1.js"></script>
+  <script src="/scripts/material.min.js"></script>
+  <script src="/scripts/userdata.js"></script>
+  <script src="/scripts/user_profile.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+	<script type="text/javascript">
+		/* This loads our shared header and places the contents of this page inside it. */
+		$(document).ready( function() {
+			$("#header").load("/shared/header.html", function() {
+				$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
+				componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
+				$(".mdl-layout-title").text("User")								// CHANGE THIS: set proper page title
+			});
+			//$("#this-page").load("/templates/cookie_testers.html");
+		});
+	</script>
+</head>
+<body>
+	<div id="header"></div>
+
+	<div id="this-page">
+		<div class="panel">
+			<div class="artist_profile">
+				<div class="artist_picture">
+					<img src="/assets/artista.jpg" alt="">
+				</div>
+				<div class="artist_review">
+					<p>Quality</p>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star"></span>
+						<span class="fa fa-star"></span>
+					<p>Communication</p>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star"></span>
+					<p>Timeliness</p>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+				</div>
+			</div>
+			<div class="artist_bio">
+				<h5>Artist Biography</h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales lacus a nisi tincidunt, at posuere ex venenatis. Morbi suscipit magna vitae magna elementum, sed aliquet lectus sagittis. Nullam suscipit eu ipsum in egestas. Etiam velit sapien, convallis eu elit ut, feugiat semper dui. Donec at nunc magna... Read More</p>
+
+			</div>
+			<div class="example_works">
+				<h5>Example Works</h5>
+				<div>
+					<a href="/artist_profile.html">
+						<figure>
+							<img src="/assets/artista.jpg" alt="">
+						</figure>
+					</a>
+					<a href="/artist_profile.html">
+						<figure>
+							<img src="/assets/artista.jpg" alt="">
+						</figure>
+					</a>
+					<a href="/artist_profile.html">
+						<figure>
+							<img src="/assets/artista.jpg" alt="">
+						</figure>
+					</a>
+				</div>
+				<div>
+					<button class="mdl-button mdl-js-button mdl-button--raised long_btn">Show more</button>
+				</div>
+			</div>
+			<div class="commisions">
+				<h5>Commision Options and Pricing</h5>
+				<div class="commision">
+					<div class="left">
+						<figure class=""><img src="/assets/artista.jpg" alt="">
+						<button class="mdl-button mdl-js-button mdl-button--raised long_btn">ORDER</button>
+					</div>
+					<div class="right">
+						<p class="title">Head Bust Character Portrait</p> 
+						<p class="price">15€</p>
+						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales lacus a nisi tincidunt, at posuere ex venenatis. Morbi suscipit magna vitae magna elementum, sed aliquet lectus sagittis. Nullam suscipit eu ipsum in egestas. Etiam velit sapien, convallis eu elit ut, feugiat semper dui. Donec at nunc magna. Nullam viverra purus ut dui ultrices, ut sollicitudin justo scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum a mauris sit amet sodales. Nulla a justo quis dolor fringilla mollis in at ipsum. Nunc tristique augue risus, quis hendrerit neque euismod et. Praesent vestibulum convallis justo. Proin sapien urna, lacinia eu elit vitae, tempor sagittis dui. Aliquam interdum nulla ante, sit amet maximus neque luctus sit amet.
+						</p>
+					</div>
+				</div>
+								<div class="commision">
+					<div class="left">
+						<figure class=""><img src="/assets/artista.jpg" alt="">
+						<button class="mdl-button mdl-js-button mdl-button--raised long_btn">ORDER</button>
+					</div>
+					<div class="right">
+						<p class="title">Head Bust Character Portrait</p> 
+						<p class="price">15€</p>
+						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales lacus a nisi tincidunt, at posuere ex venenatis. Morbi suscipit magna vitae magna elementum, sed aliquet lectus sagittis. Nullam suscipit eu ipsum in egestas. Etiam velit sapien, convallis eu elit ut, feugiat semper dui. Donec at nunc magna. Nullam viverra purus ut dui ultrices, ut sollicitudin justo scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum a mauris sit amet sodales. Nulla a justo quis dolor fringilla mollis in at ipsum. Nunc tristique augue risus, quis hendrerit neque euismod et. Praesent vestibulum convallis justo. Proin sapien urna, lacinia eu elit vitae, tempor sagittis dui. Aliquam interdum nulla ante, sit amet maximus neque luctus sit amet.
+						</p>
+					</div>
+				</div>
+								<div class="commision">
+					<div class="left">
+						<figure class=""><img src="/assets/artista.jpg" alt="">
+						<button class="mdl-button mdl-js-button mdl-button--raised long_btn">ORDER</button>
+					</div>
+					<div class="right">
+						<p class="title">Head Bust Character Portrait</p> 
+						<p class="price">15€</p>
+						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales lacus a nisi tincidunt, at posuere ex venenatis. Morbi suscipit magna vitae magna elementum, sed aliquet lectus sagittis. Nullam suscipit eu ipsum in egestas. Etiam velit sapien, convallis eu elit ut, feugiat semper dui. Donec at nunc magna. Nullam viverra purus ut dui ultrices, ut sollicitudin justo scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum a mauris sit amet sodales. Nulla a justo quis dolor fringilla mollis in at ipsum. Nunc tristique augue risus, quis hendrerit neque euismod et. Praesent vestibulum convallis justo. Proin sapien urna, lacinia eu elit vitae, tempor sagittis dui. Aliquam interdum nulla ante, sit amet maximus neque luctus sit amet.
+						</p>
+					</div>
+				</div>
+								<div class="commision">
+					<div class="left">
+						<figure class=""><img src="/assets/artista.jpg" alt="">
+						<button class="mdl-button mdl-js-button mdl-button--raised long_btn">ORDER</button>
+					</div>
+					<div class="right">
+						<p class="title">Head Bust Character Portrait</p> 
+						<p class="price">15€</p>
+						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales lacus a nisi tincidunt, at posuere ex venenatis. Morbi suscipit magna vitae magna elementum, sed aliquet lectus sagittis. Nullam suscipit eu ipsum in egestas. Etiam velit sapien, convallis eu elit ut, feugiat semper dui. Donec at nunc magna. Nullam viverra purus ut dui ultrices, ut sollicitudin justo scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum a mauris sit amet sodales. Nulla a justo quis dolor fringilla mollis in at ipsum. Nunc tristique augue risus, quis hendrerit neque euismod et. Praesent vestibulum convallis justo. Proin sapien urna, lacinia eu elit vitae, tempor sagittis dui. Aliquam interdum nulla ante, sit amet maximus neque luctus sit amet.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
