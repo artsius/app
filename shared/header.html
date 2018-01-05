@@ -8,23 +8,34 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="/index.html">Home</a>
       </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="pagetitle mdl-layout-title">Title</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="/index.html">Home</a>
+      <a class="mdl-navigation__link" onClick="userdata.delall()">Delete data</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
     <div class="page-content"><!-- Your content goes here --></div>
   </main>
 </div>
+
+<!-- POPUP -->
+<dialog class="mdl-dialog">
+  <h4 id="popup-title" class="mdl-dialog__title">Achievement unlocked!</h4>
+  <div class="mdl-dialog__content">
+    <p id="popup-text" style="font-size: 20pt">
+      You have achieved something!
+    </p>
+    <p id="popup-desc">
+      You have achieved something!
+    </p>
+  </div>
+  <div class="mdl-dialog__actions">
+    <button type="button" class="mdl-button close">Okay</button>
+  </div>
+</dialog>

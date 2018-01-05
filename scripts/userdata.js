@@ -2,7 +2,12 @@ var userdata = {
 	/* returns an object containing all data stored in the cookie, or empty object if the cookie doesn't exist yet */
 	getall: function() {
 		var cookies = document.cookie;
-		if (cookies == "") return {};
+		if (cookies == "") {
+			return {
+				exp: 0,
+				visited: 0
+			};
+		}
 
 		var pair;
 		var userdata = "";

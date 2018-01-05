@@ -7,24 +7,16 @@
 
   <title>Artsius</title>
 
+  <link rel="stylesheet" href="style/dialog-polyfill.css">
   <link rel="stylesheet" href="style/material.min.css">
   <link rel="stylesheet" href="style/main.css">	<!-- CHANGE THIS -->
   <script src="/scripts/jquery-3.2.1.js"></script>
+  <script src="/scripts/dialog-polyfill.js"></script>
   <script src="/scripts/material.min.js"></script>
   <script src="/scripts/userdata.js"></script>
+  <script src="/scripts/header.js"></script>
   <script src="/scripts/main.js"></script>	<!-- CHANGE THIS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-	<script type="text/javascript">
-		/* This loads our shared header and places the contents of this page inside it. */
-		$(document).ready( function() {
-			$("#header").load("/shared/header.html", function() {
-				$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
-				componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
-				$(".mdl-layout-title").text("[TITLE HERE]")					// CHANGE THIS: set proper page title
-			});
-		});
-	</script>
 </head>
 
 <body>

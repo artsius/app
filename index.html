@@ -7,27 +7,16 @@
 
   <title>Artsius</title>
 
+  <link rel="stylesheet" href="style/dialog-polyfill.css">
   <link rel="stylesheet" href="style/material.min.css">
   <link rel="stylesheet" href="style/main.css">
   <script src="/scripts/jquery-3.2.1.js"></script>
+  <script src="/scripts/dialog-polyfill.js"></script>
   <script src="/scripts/material.min.js"></script>
   <script src="/scripts/userdata.js"></script>
+  <script src="/scripts/header.js"></script>
   <script src="/scripts/main.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-	<script type="text/javascript">
-		/* This loads our shared header and places the contents of this page inside it. */
-		$(document).ready( function() {
-			$("#header").load("/shared/header.html", function() {
-				$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
-				componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
-				$(".pagetitle").text("Artsius")
-			});
-			$("#search-btn").click(function() {
-				$("#search-result").css({'visibility':'visible'});
-			});
-		});
-	</script>
 </head>
 
 <body>
@@ -57,51 +46,51 @@
 					</div>
 
 					<div id="search-result">
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
-						</a>																																		
+						</a>
 				</div>
 
 				</div>
@@ -127,51 +116,51 @@
 				<div class="panel">
 					<h4>Trending Artists</h4>
 					<div>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
 						</a>
-						<a href="/artist_profile.html">
+						<a href="/artist-profile.html">
 							<figure>
 								<img src="/assets/artista.jpg" alt="">
 							</figure>
-						</a>																																		
+						</a>
 				</div>
 				  <!-- other anchors here ... -->
 				</div>
@@ -182,7 +171,7 @@
 			<div class="mdl-tabs__panel" id="messages-panel">
 
 			</div>
-		</div>		
+		</div>
 		<footer class="mdl-layout__footer">
 
 	  	</footer>
