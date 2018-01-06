@@ -34,7 +34,7 @@ var controller = {
 	counterCheck: function(ach) {
 
 		var counter;
-		var lvl;
+		var lvl, vals;
 
 		counter = parseInt(userdata.get("cnt_"+ach));
 		counter += 1;
@@ -42,7 +42,7 @@ var controller = {
 
 		switch (ach) {
 			case "searched":
-				var vals = [10, 20, 50, 100, 500, 1000];
+				vals = [10, 20, 50, 100, 500, 1000];
 				break;
 
 			case "ordered":
@@ -56,7 +56,7 @@ var controller = {
 				}
 
 			case "visited":
-				var vals = [10, 20, 50, 100, 500, 1000];	
+				vals = [10, 20, 50, 100, 500, 1000];	
 				break;				
 
 			default:
@@ -66,7 +66,7 @@ var controller = {
 
 		$.each(vals, function(index, value) {
 			if(value == counter) {
-				lvl = index + 1;
+				lvl = index;
 				controller.achieve(ach, lvl, value);
 				return false;
 			}
