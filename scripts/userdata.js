@@ -6,7 +6,15 @@ var userdata = {
 			return {
 				level: 0,
 				exp: 0,
-				visited: 0
+				searched: 0,
+				visited: 0,
+				searched: 0,
+				ordered: 0,
+				ordered5: 0,
+				cnt_searched: 0,
+				cnt_visited: 0,
+				cnt_ordered: 0,
+				cnt_ordered5: 0
 			};
 		}
 

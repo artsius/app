@@ -6,12 +6,72 @@ $(document).ready( function() {
 		$(".pagetitle").text("Artsius")
 		controller.initPopup();
 	});
+
 	$("#search-btn").click(function() {
 		$("#search-result").css({'visibility':'visible'});
+		controller.counterCheck("searched");
 	});
+
+	$(".order_btn").click(function() {
+		controller.counterCheck("ordered");
+	});
+
+	$("#home-tab").click(function() {
+		$("#search-result").css({'visibility':'hidden'});
+	});
+	
+	/* Check if artist profile is visited. */
+	if ($('.artist-profile').length) {
+		$("#search-result").css({'visibility':'hidden'});
+		controller.counterCheck("visited");
+	}
 });
 
 var controller = {
+
+	/* Get and update counter for each achievement. */
+	counterCheck: function(ach) {
+
+		var counter;
+		var lvl;
+
+		counter = parseInt(userdata.get("cnt_"+ach));
+		counter += 1;
+		userdata.set("cnt_"+ach, counter);
+
+		switch (ach) {
+			case "searched":
+				var vals = [10, 20, 50, 100, 500, 1000];
+				break;
+
+			case "ordered":
+				if(counter % 5 == 0){
+					controller.achieve(ach+"5", 0, 1);
+					return;
+				}
+				else {
+					controller.achieve(ach, 0, 1);
+					return;
+				}
+
+			case "visited":
+				var vals = [10, 20, 50, 100, 500, 1000];	
+				break;				
+
+			default:
+				console.log("UNDEFINED ACHIEVEMENT: "+ach);
+				return;	
+		}
+
+		$.each(vals, function(index, value) {
+			if(value == counter) {
+				lvl = index + 1;
+				controller.achieve(ach, lvl, value);
+				return false;
+			}
+		});
+
+	},
 
 	/*	Init the popup
 	 *
@@ -31,7 +91,7 @@ var controller = {
 
 	/*	Unlock an achievement. Shows the popup and sets needed user data.
 	 * */
-	achieve: function(ach, lvlStr) {
+	achieve: function(ach, lvlStr, val) {
 		var lvl = parseInt(lvlStr);
 		var vals, exp;
 
@@ -40,12 +100,33 @@ var controller = {
 		switch (ach) {
 			case "visited":
 				//if (userdata.get(ach) <= lvl) break;
-				vals = [10, 20, 50, 100, 1000];										// visited profiles per achievement level
+				//vals = [10, 20, 50, 100, 1000];										// visited profiles per achievement level
 				exp = [20, 30, 40, 50, 100];											// exp per achievement level
 
 				$("#popup-text").text("Sharp eye");
-				$("#popup-desc").text("Visited " + vals[lvl] + " artist profiles.");
+				$("#popup-desc").text("Visited " + val + " artist profiles.");
 				break;
+
+			case "searched":
+				exp = [20, 30, 40, 50, 100];
+
+				$("#popup-text").text("Nifty explorer");
+				$("#popup-desc").text("Searched " + val + " times.");
+				break;
+
+			case "ordered":
+				exp = [40];
+
+				$("#popup-text").text("Craft scavenger");
+				$("#popup-desc").text("This order brings you 40 exp points!");
+				break;
+
+			case "ordered5":
+				exp = [80];
+
+				$("#popup-text").text("Craft scavenger");
+				$("#popup-desc").text("This order brings you 80 exp points!");
+				break;						
 
 			default:
 				console.log("UNDEFINED ACHIEVEMENT: "+ach);
@@ -54,6 +135,7 @@ var controller = {
 		}
 
 		userdata.set("exp", userdata.get("exp") + exp[lvl]);	// add exp
+		console.log("exp:"+userdata.get("exp"));
 		userdata.set(ach, lvl);																// set achievement level
 		$("dialog")[0].showModal();														// show achievement dialog
 	},
@@ -66,15 +148,26 @@ var controller = {
 		var level = userdata.get("level");
 		var nextLvl = controller.levelFun(level + 1);
 
+
 		if (current >= nextLvl) {
 			level += 1;
 			userdata.set("level", level);
 			userdata.set("exp", current - nextLvl);
 
+
+
 			$("#popup-title").text("Level up!");
 			$("#popup-text").text("You have reached level " + level + "!");
 			$("#popup-desc").text("Congratulations!");
 			$("dialog")[0].showModal();														// show achievement dialog
+
+			/* Every 5th level up
+			**
+			if(level & 5 == 0) {
+				$("#popup-desc").text("Congratulations, you received a new profile background!");
+				$("dialog")[0].showModal();				
+			}
+			*/			
 		}
 	},
 
