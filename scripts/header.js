@@ -5,26 +5,27 @@ $(document).ready( function() {
 		componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
 		$(".pagetitle").text("Artsius")
 		controller.initPopup();
-	});
 
-	$("#search-btn").click(function() {
-		$("#search-result").css({'visibility':'visible'});
-		controller.counterCheck("searched");
-	});
+		$("#search-btn").click(function() {
+			$("#search-result").css({'visibility':'visible'});
+			controller.counterCheck("searched");
+		});
 
-	$(".order_btn").click(function() {
-		controller.counterCheck("ordered");
-	});
+		$(".order_btn").click(function() {
+			controller.counterCheck("ordered");
+		});
 
-	$("#home-tab").click(function() {
-		$("#search-result").css({'visibility':'hidden'});
+		$("#home-tab").click(function() {
+			$("#search-result").css({'visibility':'hidden'});
+		});
+		
+		/* Check if artist profile is visited. */
+		if ($('.artist-profile').length) {
+			$("#search-result").css({'visibility':'hidden'});
+			controller.counterCheck("visited");
+		}
+
 	});
-	
-	/* Check if artist profile is visited. */
-	if ($('.artist-profile').length) {
-		$("#search-result").css({'visibility':'hidden'});
-		controller.counterCheck("visited");
-	}
 });
 
 var controller = {
