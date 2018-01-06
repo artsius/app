@@ -4,14 +4,14 @@ $(document).ready( function() {
 		$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
 		componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
 		$(".pagetitle").text("Artsius")
-		popup.initPopup();
+		controller.initPopup();
 	});
 	$("#search-btn").click(function() {
 		$("#search-result").css({'visibility':'visible'});
 	});
 });
 
-var popup = {
+var controller = {
 
 	/*	Init the popup
 	 *
@@ -24,21 +24,22 @@ var popup = {
 		}
 		dialog.querySelector('.close').addEventListener('click', function() {
 			dialog.close();
+			controller.levelCheck();
 		});
 	},
 
+
 	/*	Unlock an achievement. Shows the popup and sets needed user data.
-	 *
 	 * */
 	achieve: function(ach, lvlStr) {
 		var lvl = parseInt(lvlStr);
 		var vals, exp;
 
-		$("popup-title").text("Achievement unlocked:");
+		$("#popup-title").text("Achievement unlocked!");
 
 		switch (ach) {
 			case "visited":
-				if (userdata.get(ach) <= lvl) break;
+				//if (userdata.get(ach) <= lvl) break;
 				vals = [10, 20, 50, 100, 1000];										// visited profiles per achievement level
 				exp = [20, 30, 40, 50, 100];											// exp per achievement level
 
@@ -48,17 +49,40 @@ var popup = {
 
 			default:
 				console.log("UNDEFINED ACHIEVEMENT: "+ach);
-				break;
+				return;
 
 		}
 
-		userdata.set("exp", userdata.get("exp") + exp[lvl]);
-		userdata.set(ach, lvl);
-		$("dialog")[0].showModal();
+		userdata.set("exp", userdata.get("exp") + exp[lvl]);	// add exp
+		userdata.set(ach, lvl);																// set achievement level
+		$("dialog")[0].showModal();														// show achievement dialog
+	},
+
+
+	/*	Check for a levelup when user accepts the achievement.
+	 * */
+	levelCheck: function() {
+		var current = userdata.get("exp");
+		var level = userdata.get("level");
+		var nextLvl = controller.levelFun(level + 1);
+
+		if (current >= nextLvl) {
+			level += 1;
+			userdata.set("level", level);
+			userdata.set("exp", current - nextLvl);
+
+			$("#popup-title").text("Level up!");
+			$("#popup-text").text("You have reached level " + level + "!");
+			$("#popup-desc").text("Congratulations!");
+			$("dialog")[0].showModal();														// show achievement dialog
+		}
+	},
+
+
+	/*	Calculate exp needed for a given levelup.
+	 * */
+	levelFun: function(x) {
+		return Math.round(10 * (Math.log(x) * 3 + (x / 10) + 10));
 	}
-
-
-
-
 
 }

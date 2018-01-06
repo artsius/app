@@ -4,6 +4,7 @@ var userdata = {
 		var cookies = document.cookie;
 		if (cookies == "") {
 			return {
+				level: 0,
 				exp: 0,
 				visited: 0
 			};
