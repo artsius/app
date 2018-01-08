@@ -9,13 +9,14 @@ var userdata = {
 				exp: 0,
 				searched: 0,
 				visited: 0,
-				searched: 0,
 				ordered: 0,
 				ordered5: 0,
 				cnt_searched: 0,
 				cnt_visited: 0,
 				cnt_ordered: 0,
-				cnt_ordered5: 0
+				cnt_ordered5: 0,
+				messages: 0,
+				unknown: 0
 			};
 		}
 
@@ -43,6 +44,26 @@ var userdata = {
 		var currentdata = this.getall();
 		currentdata[varname] = value;
 		var newdata = "userdata=" + encodeURIComponent(JSON.stringify(currentdata)) + "; max-age=3153600000; path=/";
+		document.cookie = newdata;
+	},
+
+	setdemo() {
+		var demoData = {
+			level: 14,
+			next_level: 196,
+			exp: 11,
+			searched: 3,
+			visited: 2,
+			ordered: 1,
+			ordered5: 0,
+			cnt_searched: 97,
+			cnt_visited: 46,
+			cnt_ordered: 1,
+			cnt_ordered5: 0,
+			messages: 4,
+			unknown: 0
+		};
+		var newdata = "userdata=" + encodeURIComponent(JSON.stringify(demoData)) + "; max-age=3153600000; path=/";
 		document.cookie = newdata;
 	},
 

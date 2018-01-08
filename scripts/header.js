@@ -48,11 +48,13 @@ var controller = {
 
 			case "ordered":
 				if(counter % 5 == 0){
-					controller.achieve(ach+"5", 0, 1);
+					if (counter > 5) counter = 5;
+					controller.achieve(ach+"5", counter / 5, 1);
 					return;
 				}
 				else {
-					controller.achieve(ach, 0, 1);
+					if (counter > 5) counter = 5;
+					controller.achieve(ach, counter, 1);
 					return;
 				}
 
@@ -68,7 +70,7 @@ var controller = {
 		$.each(vals, function(index, value) {
 			if(value == counter) {
 				lvl = index;
-				controller.achieve(ach, lvl, value);
+				controller.achieve(ach, lvl + 1, value);
 				return false;
 			}
 		});
@@ -97,35 +99,38 @@ var controller = {
 		var lvl = parseInt(lvlStr);
 		var vals, exp;
 
-		$("#popup-title").text("Achievement unlocked!");
 
 		switch (ach) {
 			case "visited":
 				//if (userdata.get(ach) <= lvl) break;
 				//vals = [10, 20, 50, 100, 1000];										// visited profiles per achievement level
-				exp = [20, 30, 40, 50, 100];											// exp per achievement level
+				exp = [0, 20, 30, 40, 50, 100];											// exp per achievement level
 
+				$("#popup-title").text("Achievement unlocked!");
 				$("#popup-text").text("Sharp eye");
 				$("#popup-desc").text("Visited " + val + " artist profiles.");
 				break;
 
 			case "searched":
-				exp = [20, 30, 40, 50, 100];
+				exp = [0, 20, 30, 40, 50, 100];
 
+				$("#popup-title").text("Achievement unlocked!");
 				$("#popup-text").text("Nifty explorer");
 				$("#popup-desc").text("Searched " + val + " times.");
 				break;
 
 			case "ordered":
-				exp = [40];
+				exp = [0, 40, 40, 40, 40, 40, 40];
 
+				$("#popup-title").text("Order bonus!");
 				$("#popup-text").text("Craft scavenger");
 				$("#popup-desc").text("This order brings you 40 exp points!");
 				break;
 
 			case "ordered5":
-				exp = [80];
+				exp = [0, 80, 80, 80, 80, 80, 80];
 
+				$("#popup-title").text("Massive order bonus!");
 				$("#popup-text").text("Craft scavenger");
 				$("#popup-desc").text("This order brings you 80 exp points!");
 				break;
@@ -137,8 +142,8 @@ var controller = {
 		}
 
 		userdata.set("exp", userdata.get("exp") + exp[lvl]);	// add exp
-		console.log("exp:"+userdata.get("exp"));
 		userdata.set(ach, lvl);																// set achievement level
+		console.log(ach + ", level: "+lvl);
 		$("dialog")[0].showModal();														// show achievement dialog
 	},
 
@@ -155,11 +160,18 @@ var controller = {
 			level += 1;
 			userdata.set("level", level);
 			userdata.set("exp", current - nextLvl);
-			userdata.set("next_lvl", controller.levelFun(level + 1));
+			userdata.set("next_level", controller.levelFun(level + 1));
 
-			$("#popup-title").text("Level up!");
-			$("#popup-text").text("You have reached level " + level + "!");
-			$("#popup-desc").text("Congratulations!");
+			if(level % 5 == 0) {
+				$("#popup-title").text("Level up bonus!");
+				$("#popup-text").text("You have reached level " + level + "! This grants you a 5% discount on your next order!");
+				$("#popup-desc").text("This only happens every 5 levels, so congratulations!");
+			} else {
+				$("#popup-title").text("Level up!");
+				$("#popup-text").text("You have reached level " + level + "!");
+				$("#popup-desc").text("Congratulations!");
+			}
+
 			$("dialog")[0].showModal();														// show achievement dialog
 
 			$("#userData").text("Username, lvl " + userdata.get("level"));

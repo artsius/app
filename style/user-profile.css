@@ -1,5 +1,7 @@
 #this-page {
+	background-color: #eee;
 	padding: 4pt;
+	padding-top: 10pt;
 }
 
 #profPic {
@@ -9,7 +11,7 @@
 
 #user-inf {
 	display: inline-block;
-	width: 58%;
+	width: 57%;
 	vertical-align:top;
 
 	margin-left: 4%;
@@ -35,7 +37,6 @@
 }
 #exp-text {
 	display: inline-block;
-	vertical-align: bottom;
 	float: right;
 
 	text-align: right;
@@ -52,7 +53,7 @@
 	width: 100%;
 	margin-top: 14pt;
 
-	background-color: #cccccc;
+	background-color: #c0c0c0;
 	border-radius: 4pt;
 	overflow: hidden;
 }
@@ -61,4 +62,38 @@
 	height: 100%;
 	background-color: #617c8a;
 	overflow: visible;
+}
+
+/* achievement card */
+
+.ach-card {
+	width: 100%;
+	margin-top: 14pt;
+}
+
+.ach-icon {
+	display: inline-block;
+	vertical-align: top;
+	width: 20%;
+}
+.ach-text {
+	color: #57616f;
+
+	display: inline-block;
+	vertical-align: top;
+	width: 76%;
+
+	padding-top: 4pt;
+	padding-left: 2%;
+}
+.ach-title {
+	font-size: 16pt;
+	padding-bottom: 6pt;
+}
+.ach-locked {
+	color: #b0b0b0 !important;
+}
+
+#spacer {
+	height: 10pt;
 }
