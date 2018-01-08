@@ -24,6 +24,10 @@
   color: orange;
 }
 
+.artist_bio {
+  padding-top: 16pt;
+}
+
 .artist_bio > p {
   text-align: justify;
 }
@@ -76,7 +80,7 @@
 .text {
   font-size: 8pt;
   line-height: 1;
-  text-align: justify; 
+  text-align: justify;
 }
 
 
@@ -137,4 +141,3 @@ img {
   height: auto;
   display: block;
 }
-

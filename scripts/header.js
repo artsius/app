@@ -3,27 +3,28 @@ $(document).ready( function() {
 	$("#header").load("/shared/header.html", function() {
 		$("#this-page").detach().appendTo(".page-content");	// move page content inside the proper spot in layout
 		componentHandler.upgradeDom();											// upgrade all loaded components to properly use MDL js
-		$(".pagetitle").text("Artsius")
 		controller.initPopup();
+
+		$("#userData").text("Username, lvl " + userdata.get("level"));
+
+		$(".order_btn").click(function() {
+			controller.counterCheck("ordered");
+		});
+
+		/* Check if artist profile is visited. */
+		if ($('.artist-profile').length) {
+			$("#search-result").css({'visibility':'hidden'});
+			controller.counterCheck("visited");
+		}
 
 		$("#search-btn").click(function() {
 			$("#search-result").css({'visibility':'visible'});
 			controller.counterCheck("searched");
 		});
 
-		$(".order_btn").click(function() {
-			controller.counterCheck("ordered");
-		});
-
 		$("#home-tab").click(function() {
 			$("#search-result").css({'visibility':'hidden'});
 		});
-		
-		/* Check if artist profile is visited. */
-		if ($('.artist-profile').length) {
-			$("#search-result").css({'visibility':'hidden'});
-			controller.counterCheck("visited");
-		}
 
 	});
 });
@@ -56,12 +57,12 @@ var controller = {
 				}
 
 			case "visited":
-				vals = [10, 20, 50, 100, 500, 1000];	
-				break;				
+				vals = [10, 20, 50, 100, 500, 1000];
+				break;
 
 			default:
 				console.log("UNDEFINED ACHIEVEMENT: "+ach);
-				return;	
+				return;
 		}
 
 		$.each(vals, function(index, value) {
@@ -127,7 +128,7 @@ var controller = {
 
 				$("#popup-text").text("Craft scavenger");
 				$("#popup-desc").text("This order brings you 80 exp points!");
-				break;						
+				break;
 
 			default:
 				console.log("UNDEFINED ACHIEVEMENT: "+ach);
@@ -154,21 +155,22 @@ var controller = {
 			level += 1;
 			userdata.set("level", level);
 			userdata.set("exp", current - nextLvl);
-
-
+			userdata.set("next_lvl", controller.levelFun(level + 1));
 
 			$("#popup-title").text("Level up!");
 			$("#popup-text").text("You have reached level " + level + "!");
 			$("#popup-desc").text("Congratulations!");
 			$("dialog")[0].showModal();														// show achievement dialog
 
+			$("#userData").text("Username, lvl " + userdata.get("level"));
+
 			/* Every 5th level up
 			**
 			if(level & 5 == 0) {
 				$("#popup-desc").text("Congratulations, you received a new profile background!");
-				$("dialog")[0].showModal();				
+				$("dialog")[0].showModal();
 			}
-			*/			
+			*/
 		}
 	},
 

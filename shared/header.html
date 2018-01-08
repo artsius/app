@@ -3,7 +3,7 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="pagetitle mdl-layout-title">Title</span>
+      <span class="pagetitle mdl-layout-title">Artsius</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
@@ -13,8 +13,47 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="pagetitle mdl-layout-title">Title</span>
+    <span class="pagetitle mdl-layout-title">Artsius</span>
+    <style>
+      #userRef {
+        text-decoration: none;
+        color: #424242;
+        width: 100%;
+      }
+
+      #user-holder {
+        display: block;
+      }
+
+      #userData {
+        display: block;
+
+        margin-top: 12pt;
+        margin-left: 10pt;
+        margin-bottom: 10pt;
+
+        font-size: 18pt;
+        font-weight: 500;
+      }
+
+      #userImg {
+        border: none;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+
+    </style>
     <nav class="mdl-navigation">
+      <a id="userRef" href="/user-profile.html">
+        <span id="userHolder">
+          <img id="userImg" src="assets/user_profile.svg" />
+        </span >
+        <span id="userData">
+          Username, lvl 5
+        </span>
+      </a>
       <a class="mdl-navigation__link" href="/index.html">Home</a>
       <a class="mdl-navigation__link" onClick="userdata.delall()">Delete data</a>
     </nav>

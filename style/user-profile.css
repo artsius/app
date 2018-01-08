@@ -1,0 +1,64 @@
+#this-page {
+	padding: 4pt;
+}
+
+#profPic {
+	display: inline-block;
+	width: 33%;
+}
+
+#user-inf {
+	display: inline-block;
+	width: 58%;
+	vertical-align:top;
+
+	margin-left: 4%;
+	margin-right: 4%;
+}
+
+#uname-holder {
+	padding-top: 14pt;
+	padding-bottom: 6pt;
+
+	font-size: 24pt;
+}
+
+#level-holder {
+	display: inline-block;
+	vertical-align:top;
+
+	margin-top: 10pt;
+	margin-bottom: 4pt;
+	color: #757575;
+
+	font-size: 20pt;
+}
+#exp-text {
+	display: inline-block;
+	vertical-align: bottom;
+	float: right;
+
+	text-align: right;
+
+	margin-top: 12pt;
+	margin-bottom: 4pt;
+	color: #757575;
+
+	font-size: 14pt;
+}
+
+#exp-holder {
+	height: 20pt;
+	width: 100%;
+	margin-top: 14pt;
+
+	background-color: #cccccc;
+	border-radius: 4pt;
+	overflow: hidden;
+}
+#exp-bar {
+	width: 3%;
+	height: 100%;
+	background-color: #617c8a;
+	overflow: visible;
+}

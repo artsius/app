@@ -5,6 +5,7 @@ var userdata = {
 		if (cookies == "") {
 			return {
 				level: 0,
+				next_level: 101,
 				exp: 0,
 				searched: 0,
 				visited: 0,
